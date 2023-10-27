@@ -1,0 +1,45 @@
+<body>
+    <h1 style="text-align: center;" class="mb-3">Edit Mobile</h1>
+    <div class="container">
+        
+                    <form #form="ngForm" (ngSubmit)="updateMobile()">
+                        <div class="mb-3">
+                            <label for="mobileid" class="form-label">MobileId</label>
+                            <input type="number" class="form-control" id="mobilename" readonly name="mobileid" [(ngModel)] ="mobileDetails.MobileId" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="mobilename" class="form-label">MobileName</label>
+                          <input type="text" class="form-control" id="mobilename" name="mobilename" [(ngModel)] ="mobileDetails.MobileName" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="ram" class="form-label">Ram</label>
+                          <input type="text" class="form-control" id="ram" name="ram" [(ngModel)] ="mobileDetails.Ram" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="storage" class="form-label">MobileDescription</label>
+                          <input type="text" class="form-control" id="storage" name="storage" [(ngModel)] ="mobileDetails.Storage" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="mobileprice" class="form-label">MobilePrice</label>
+                          <input type="number" class="form-control" id="mobileprice" name="mobileprice" [(ngModel)] ="mobileDetails.MobilePrice" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="mobilequantityavailable" class="form-label">MobileQuantityAvailable</label>
+                          <input type="number" class="form-control" id="mobilequantityavailable" name="mobilequantityavailable" [(ngModel)]="mobileDetails.MobileQuantityAvailable" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="mobileimage" class="form-label">MobileImage</label>
+                        <input type="number" class="form-control" id="mobileimage" name="mobileimage" [(ngModel)]="mobileDetails.MobileImage" required>
+                    </div>
+                      
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <input type="text" class="form-control" id="message" name="message" [(ngModel)] ="mobileDetails.SuccessMessage" required>
+                        </div>
+                          
+                        <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Save</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteMobile(mobileDetails.MobileId)">Delete</button>
+                    </form>
+                </div>
+       
+</body>

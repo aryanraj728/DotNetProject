@@ -1,0 +1,38 @@
+<body>
+    <h1 style="text-align: center;" class="'mb-3">Mobiles</h1>
+    <div class="search-box">
+        <input style="margin-left: 80px;" type="text" class="input" id="mobilename" name="mobilename" placeholder="Search" [(ngModel)] ="mobilename">
+        <button type="submit" class="search-button" (click)=getMobileByMobileName(mobilename)>
+            Search
+        </button>
+    </div>
+     <div class="container">
+        <div class="container my-5">
+            <!-- <table class="table" *ngIf="mobilesDisplay && mobilesDisplay.length>0"> -->
+                <!-- <tbody> -->
+                    <div class="product-container">
+                    <div id="row"  *ngFor="let mobile of mobilesDisplay;let i=index">
+                        <!-- <td>{{ mobile.MobileId}}</td> -->
+                        <!-- <div class="product"> -->
+                        <h4>{{ mobile.MobileName}}</h4>
+                        <!-- <td class="overflow-hidden d-flex justify-content-center align-items-center"> -->
+                             <img src="../../assets/Image/{{mobile.MobileImage}}" height="500" width="600">
+                        <!-- </td> -->
+                        
+                        <div>{{ mobile.Ram}}</div>
+                        <div>{{ mobile.Storage}}</div>
+                        <div>{{ mobile.MobilePrice}}</div>
+                        <div>{{ mobile.MobileQuantityAvailable}}</div>
+                        <div><input type="number" id="reqQuantity" name="reqQuantity" min="1" [(ngModel)] ="reqQuantity[i]"></div>
+                        <div><button class="btn btn-info" style="background-color: black; color: white;" (click)="postCart(mobile.MobileId,reqQuantity[i])">Add To Cart<i class=""></i></button></div>
+                        </div>
+                    <!-- </div> -->
+                    <!-- </tr> -->
+                    </div>
+                <!-- </tbody> -->
+            <!-- </table> -->
+            <p *ngIf="!mobilesDisplay || mobilesDisplay.length <=0">Mobiles Not Found</p>
+        </div>  
+    </div>
+
+</body>

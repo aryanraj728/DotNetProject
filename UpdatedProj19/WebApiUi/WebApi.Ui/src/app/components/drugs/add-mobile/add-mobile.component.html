@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Mobile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #a3a3a3;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      /* transform: perspective(800px) rotateY(10deg); */
+    }
+
+    .title {
+      text-align: center;
+      color: #04765A;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #04765A;
+      font-weight: bold;
+    }
+
+    .input-group label span {
+      margin-left: 5px; /* Add space after the text */
+      color: #000000; /* Change label color */
+    }
+
+    .input-group input {
+      padding: 10px;
+      border: 2px solid #04765A;
+      border-radius: 5px;
+      font-weight: bold;
+      color: black;
+      /* background-color: #423434; */
+    }
+
+    .input-group .error-message {
+      color: #04765A;
+    }
+
+    .sign {
+      padding: 10px;
+      background-color: #04765A;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .sign:hover {
+      background-color: #04765A;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 15px;
+      color: #ffffff;
+    }
+
+    .signup a {
+      color: #04765A;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1 class="title">Add New Mobile</h1>
+      <form #form="ngForm" (ngSubmit)="addMobile()" class="form">
+        <div class="input-group">
+          <label for="mobilename">Mobile Name <span>:</span></label>
+          <input type="text" id="mobilename" name="mobilename" [(ngModel)]="addMobileRequest.MobileName" required>
+          <div *ngIf="!addMobileRequest.MobileName && isFormSubmitted" class="error-message">Mobile Name is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="ram">RAM <span>:</span></label>
+          <input type="text" id="ram" name="ram" [(ngModel)]="addMobileRequest.Ram" required>
+          <div *ngIf="!addMobileRequest.Ram && isFormSubmitted" class="error-message">RAM is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="storage">Storage <span>:</span></label>
+          <input type="text" id="storage" name="storage" [(ngModel)]="addMobileRequest.Storage" required>
+          <div *ngIf="!addMobileRequest.Storage && isFormSubmitted" class="error-message">Storage is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="mobileprice">Mobile Price <span>:</span></label>
+          <input type="number" id="mobileprice" name="mobileprice" [(ngModel)]="addMobileRequest.MobilePrice" required>
+          <div *ngIf="!addMobileRequest.MobilePrice && isFormSubmitted" class="error-message">Mobile Price is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="mobilequantityavailable">Mobile Quantity Available <span>:</span></label>
+          <input type="number" id="mobilequantityavailable" name="mobilequantityavailable" [(ngModel)]="addMobileRequest.MobileQuantityAvailable" required>
+          <div *ngIf="!addMobileRequest.MobileQuantityAvailable && isFormSubmitted" class="error-message">Quantity is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="message">ImageUrl <span>:</span></label>
+          <input type="text" id="mobileimage" name="mobileimage" [(ngModel)]="addMobileRequest.MobileImage" required>
+          <div *ngIf="!addMobileRequest.MobileImage && isFormSubmitted" class="error-message">Image is required!</div>
+        </div>
+        <div class="input-group">
+          <label for="message">Message <span>:</span></label>
+          <input type="text" id="message" name="message" [(ngModel)]="addMobileRequest.SuccessMessage" required>
+          <div *ngIf="!addMobileRequest.SuccessMessage && isFormSubmitted" class="error-message">Message is required!</div>
+        </div>
+        <button type="submit" class="sign">Add Mobile</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<body>
+  <h1 style="text-align: center; margin-bottom: 3rem;">Mobiles</h1>
+  <div class="search-box">
+    <!-- Your search box UI here -->
+  </div>
+  <div class="container">
+    <div class="container my-5">
+      <div *ngIf="mobiles && mobiles.length > 0" class="table-container">
+        <table class="mobile-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th> Name</th>
+              <th>Image</th>
+              <th>Ram</th>
+              <th>Storage</th>
+              <th>Mobile Price</th>
+              <th>Quantity</th>
+              <th>  Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mobile of mobiles">
+              <td>{{ mobile.MobileId }}</td>
+              <td>{{ mobile.MobileName }}</td>
+              <td><img src="../../assets/Image/{{mobile.MobileImage}}" height="50" width="50"></td>
+              <td>{{ mobile.Ram }}</td>
+              <td>{{ mobile.Storage }}</td>
+              <td>{{ mobile.MobilePrice }}</td>
+              <td>{{ mobile.MobileQuantityAvailable }}</td>
+              <td>
+                <button class="view-button" [routerLink]="['/mobiles','edit',mobile.MobileId]">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p *ngIf="!mobiles || mobiles.length <= 0">Mobiles Not Found</p>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+

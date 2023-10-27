@@ -1,0 +1,36 @@
+<body>
+    <h1 style="text-align: center;" class="mb-3">Your Product</h1>
+    <div class="container">
+        <div class="my-2">
+            <table class="table" *ngIf="showOrders && showOrders.length>0">
+                <thead>
+                    <tr>
+                        <th>OrderId</th>
+                        <th>Image</th>
+                        <th>OrderedQuantity</th>
+                        <th>OrderedPrice</th>
+                        <th>MobileName</th>
+                        <th>OrderDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of showOrders">
+                        <td>{{ cart.OrderId}}</td>
+                        <td><img src="../../assets/Image/{{cart.MobileImage}}" height="80" width="80"></td>
+                        <td>{{ cart.OrderedQuantity}}</td>
+                        <td>{{ cart.OrderPrice}}</td>
+                        <td>{{ cart.MobileName}}</td> 
+                        <td>{{ cart.OrderedDate}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteOrder(cart.OrderId)">Cancel Order</button></td>
+        
+                    </tr>
+                </tbody>
+        
+            </table>
+            <p *ngIf="!showOrders || showOrders.length <=0">Your Cart is Empty</p>
+        </div>
+        
+        
+        
+    </div>
+</body>

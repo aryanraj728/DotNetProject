@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      body {
+        /* background-color: #423434; */
+        font-family: Arial, sans-serif;
+        background-color: #a3a3a3 ;
+      }
+
+      
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form-container {
+        max-width: 400px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        /* transform: perspective(800px) rotateY(10deg); */
+      }
+
+      .title {
+        text-align: center;
+        color: #04765A;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #04765A;
+        font-weight: bold;
+      }
+
+      .input-group input {
+        padding: 10px;
+        border: 2px solid #04765A;
+        border-radius: 5px;
+        font-weight: bold;
+        color:black;
+      }
+
+      .input-group .error-message {
+        color: #04765A;
+      }
+
+      .sign {
+        padding: 10px;
+        background-color: #04765A;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .signup {
+        text-align: center;
+        margin-top: 15px;
+        color: #ffffff;
+      }
+
+      .signup a {
+        color: #04765A;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <p class="title">Login</p>
+        <form class="form" (submit)="login()">
+          <div class="input-group">
+            <label for="useremail">User Email</label>
+            <input type="email" name="useremail" id="useremail" [(ngModel)]="userLoginRequest.UserEmail" placeholder="Email" required>
+            <div *ngIf="!userLoginRequest.UserEmail && isFormSubmitted" class="error-message">Email is required!</div>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" [(ngModel)]="userLoginRequest.Password" placeholder="Password" required>
+            <div *ngIf="!userLoginRequest.Password && isFormSubmitted" class="error-message">Password is required!</div>
+          </div>
+          <button class="sign" type="submit">Login</button>
+        </form>
+        <p class="signup">Don't have an account? <a rel="noopener noreferrer" href="http://localhost:4200/signup">Sign up</a></p>
+      </div>
+   
